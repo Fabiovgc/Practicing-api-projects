@@ -10,6 +10,7 @@ namespace People_Manager.Controllers
         {
             return View();
         }
+<<<<<<< HEAD
 
 
         [Route("details/{Id:int}")]
@@ -18,5 +19,7 @@ namespace People_Manager.Controllers
             return View();
         }
 
+=======
+>>>>>>> 3edad37c41b6cfa1f3fa704c563b63ec34c20960
     }
 }
