@@ -10,5 +10,13 @@ namespace People_Manager.Controllers
         {
             return View();
         }
+
+
+        [Route("details/{Id:int}")]
+        public IActionResult Details(int Id)
+        {
+            return View();
+        }
+
     }
 }

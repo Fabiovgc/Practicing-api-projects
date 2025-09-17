@@ -7,4 +7,8 @@
     <RootNamespace>People_Manager</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Content Remove="Views\Home\Details.cshtml" />
+  </ItemGroup>
+
 </Project>
