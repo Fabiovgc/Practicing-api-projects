@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using People_Manager.Models; 
 
 namespace People_Manager.Controllers
 {
@@ -10,16 +11,16 @@ namespace People_Manager.Controllers
         {
             return View();
         }
-<<<<<<< HEAD
+
 
 
         [Route("details/{Id:int}")]
         public IActionResult Details(int Id)
         {
-            return View();
+            var usuario = new Person(1, "Fabio", "Colonese", DateTime.Now);
+            return View(usuario);
         }
 
-=======
->>>>>>> 3edad37c41b6cfa1f3fa704c563b63ec34c20960
+
     }
 }
