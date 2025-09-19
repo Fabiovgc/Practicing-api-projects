@@ -1,0 +1,11 @@
+﻿@model List<Person>
+
+<h1>Details about a list of People</h1>
+
+@foreach (var person in Model)
+{
+    <p>Id: @person.Id</p>
+    <p>Name: @person.Name</p>
+    <p>Surname: @person.Surname</p>
+    <p>Birthdate: @person.BirthDate</p>
+}
