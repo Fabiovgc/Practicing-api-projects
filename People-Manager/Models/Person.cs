@@ -6,7 +6,6 @@
         {
             Id = id;
             Name = name;
-            Name = name;
             Surname = surname;
             BirthDate = birthdate;
         }

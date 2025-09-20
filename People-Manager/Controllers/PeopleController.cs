@@ -75,6 +75,28 @@ namespace People_Manager.Controllers
             //return RedirectToAction("Index");
         }
 
+        [HttpGet]
+        [Route("SearchByUrl")]
+        public IActionResult SearchByUrl(string name, string surname)
+        {
+            var listaUsuario = new List<Person>
+            {
+                new Person(1, "Fabio", "Colonese", DateTime.Now),
+                new Person(2, "Mario", "Rossi", DateTime.Now),
+                new Person(3, "Luigi", "Verdi", DateTime.Now),
+                new Person(4, "Anna", "Bianchi", DateTime.Now)
+            };
+
+            var pessoaSelecionada = listaUsuario.FirstOrDefault(n => n.Name == name && n.Surname == surname);
+
+            if (pessoaSelecionada == null)
+            {
+                return NotFound();
+            }
+
+            return View("~/Views/Person/SearchByUrl.cshtml", pessoaSelecionada);
+        }
+
 
     }
 }
