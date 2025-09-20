@@ -1,6 +1,7 @@
 ﻿@model Person
 
 <h1>Details about a list of People</h1>
+<h4>@ViewBag.TextoDescricao</h4>
 
 <p>Id: @Model.Id</p>
 
@@ -9,3 +10,7 @@
 <p>Surname: @Model.Surname</p>
 
 <p>Birthdate: @Model.BirthDate</p>
+
+<p>
+    @ViewData["DataAtual"];
+</p>
