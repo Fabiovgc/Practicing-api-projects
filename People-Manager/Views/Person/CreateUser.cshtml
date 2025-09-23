@@ -1,0 +1,21 @@
+﻿<h1>Create User</h1>
+
+@* 
+asp-action Determina a 'action' que vai manipular o form
+asp-controller Determina o 'controller' que vai manipular o form (PeopleController -> Escrevemos 'People')
+*@
+
+<form asp-action="CreateUser" asp-controller="people" method="post">
+
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required />
+
+    <br />
+
+    <label for="surname">Surname:</label>
+    <input type="text" id="surname" name="surname" required />
+
+    <br />
+
+    <button type="submit">Create</button>
+</form>

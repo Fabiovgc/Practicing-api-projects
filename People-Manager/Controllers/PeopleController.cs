@@ -13,9 +13,9 @@ namespace People_Manager.Controllers
         [Route("start")]
         public IActionResult Index()
         {
+
+            ViewBag.RegisterSuccess = TempData["SuccessCreate"];
             return View("~/Views/Person/Index.cshtml");
-            
-            //TempData["SucessoRedirecionamento"] = "O redirecionamento foi um sucesso";
         }
 
 
@@ -24,12 +24,10 @@ namespace People_Manager.Controllers
         public IActionResult PeopleDetails()
         {
             
-            // ViewBag is a dynamic object that allows you to pass data from the controller to the view
             ViewBag.TextoDescricao = "Texto da tela de descrição";
 
             ViewData["DataAtual"] = DateTime.Now;
 
-            // TempData["SucessoRedirecionamento"] = "O redirecionamento foi um sucesso";
 
             var people = new List<Person>();
             people.Add(new Person(1, "Fabio", "Colonese", DateTime.Now));
@@ -38,8 +36,6 @@ namespace People_Manager.Controllers
             people.Add(new Person(4, "Anna", "Bianchi", DateTime.Now));
 
             return View(people);
-
-            //return RedirectToAction("Index");
         }
 
 
@@ -51,8 +47,7 @@ namespace People_Manager.Controllers
 
             ViewData["DataAtual"] = DateTime.Now;
 
-            //TempData["SucessoRedirecionamento"] = "O redirecionamento foi um sucesso";
-
+            
             var people = new List<Person>
             {
                 new Person(1, "Fabio", "Colonese", DateTime.Now),
@@ -68,11 +63,11 @@ namespace People_Manager.Controllers
                 return NotFound();
             }
 
-            //var person = new Person(1, "Fabio", "Colonese", DateTime.Now);
+            
             
             return View("~/Views/Person/PersonDetails.cshtml", person);
             
-            //return RedirectToAction("Index");
+            
         }
 
         [HttpGet]
@@ -95,6 +90,22 @@ namespace People_Manager.Controllers
             }
 
             return View("~/Views/Person/SearchByUrl.cshtml", pessoaSelecionada);
+        }
+
+        [HttpGet]
+        [Route("CreateUser")]
+        public IActionResult CreateUser()
+        {
+            return View("~/Views/Person/CreateUser.cshtml");
+        }
+
+
+        [HttpPost]
+        [Route("CreateUser")]
+        public IActionResult CreateUser(string name, string surname)
+        {
+            TempData["SuccessCreate"] = $"The user {name} {surname} is created!";
+            return RedirectToAction("Index");
         }
 
 
