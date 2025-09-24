@@ -1,19 +1,21 @@
-﻿<h1>Create User</h1>
+﻿@model Person
+
+<h1>Create User</h1>
 
 @* 
 asp-action Determina a 'action' que vai manipular o form
 asp-controller Determina o 'controller' que vai manipular o form (PeopleController -> Escrevemos 'People')
 *@
 
-<form asp-action="CreateUser" asp-controller="people" method="post">
+<form asp-action="CreateUser" asp-controller="People" method="post">
 
-    <label for="name">Name:</label>
-    <input type="text" id="name" name="name" required />
+    <label>Name:</label>
+    <input type="text" asp-for="Name"/>
 
     <br />
 
-    <label for="surname">Surname:</label>
-    <input type="text" id="surname" name="surname" required />
+    <label>Surname:</label>
+    <input type="text" asp-for="Surname" />
 
     <br />
 

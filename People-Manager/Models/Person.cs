@@ -2,6 +2,10 @@
 {
     public class Person
     {
+        public Person()
+        {
+        }
+
         public Person(int id, string name, string surname, DateTime birthdate)
         {
             Id = id;
