@@ -7,6 +7,7 @@ asp-action Determina a 'action' que vai manipular o form
 asp-controller Determina o 'controller' que vai manipular o form (PeopleController -> Escrevemos 'People')
 *@
 
+@* 
 <form asp-action="CreateUser" asp-controller="People" method="post">
 
     <label>Name:</label>
@@ -20,4 +21,21 @@ asp-controller Determina o 'controller' que vai manipular o form (PeopleControll
     <br />
 
     <button type="submit">Create</button>
-</form>
+</form> *@
+
+@using (Html.BeginForm("CreateUser", "People", FormMethod.Post))
+{
+    <div>
+        @Html.LabelFor(Model => Model.Name)
+        @Html.TextBoxFor(Model => Model.Name)
+    </div>
+
+    <div>
+        @Html.LabelFor(Model => Model.Surname)
+        @Html.TextBoxFor(Model => Model.Surname)
+    </div>
+    <br/>
+    <button type="submit">Cadastrar</button>
+}
+
+@Html.ActionLink("Home", "Index", "Home");

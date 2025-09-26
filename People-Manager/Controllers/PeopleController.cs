@@ -102,9 +102,9 @@ namespace People_Manager.Controllers
 
         [HttpPost]
         [Route("CreateUser")]
-        public IActionResult CreateUser(string name, string surname)
+        public IActionResult CreateUser(Person person)
         {
-            TempData["SuccessCreate"] = $"The user {name} {surname} is created!";
+            TempData["SuccessCreate"] = $"The user {person.Name} {person.Surname} is created!";
             return RedirectToAction("Index");
         }
 
