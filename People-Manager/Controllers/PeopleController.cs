@@ -104,8 +104,15 @@ namespace People_Manager.Controllers
         [Route("CreateUser")]
         public IActionResult CreateUser(Person person)
         {
-            TempData["SuccessCreate"] = $"The user {person.Name} {person.Surname} is created!";
-            return RedirectToAction("Index");
+
+            if (ModelState.IsValid)
+            {
+                TempData["SuccessCreate"] = $"The user {person.Name} {person.Surname} is created!";
+                return RedirectToAction("Index");
+            }
+
+            return View("~/Views/Person/CreateUser.cshtml", person);
+
         }
 
 
