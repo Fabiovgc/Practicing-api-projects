@@ -1,1 +1,1 @@
-# People-Manager
+# Practicing api projects
