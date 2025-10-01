@@ -15,6 +15,8 @@ namespace Employee_manager.Controllers
         [HttpGet("{id:int}")]
         public IActionResult GetById(int id)
         {
+
+            // return NotFound();
             return Ok();
         }
 
@@ -27,13 +29,13 @@ namespace Employee_manager.Controllers
         [HttpPut("{id:int}")]
         public IActionResult Put(int id)
         {
-            return NotFound();
+            return NoContent();
         }
 
         [HttpDelete("{id:int}")]
         public IActionResult Delete(int id)
         {
-            return NotFound();
+            return NoContent();
         }
 
     }
