@@ -1,0 +1,40 @@
+﻿using Microsoft.AspNetCore.Mvc;
+
+namespace Employee_manager.Controllers
+{
+    [ApiController]
+    [Route("api/employees")]
+    public class EmployeeController : ControllerBase
+    {
+        [HttpGet]
+        public IActionResult GetAll()
+        {
+            return Ok();
+        }
+
+        [HttpGet("{id:int}")]
+        public IActionResult GetById(int id)
+        {
+            return Ok();
+        }
+
+        [HttpPost]
+        public IActionResult Post()
+        {
+            return Ok();
+        }
+
+        [HttpPut("{id:int}")]
+        public IActionResult Put(int id)
+        {
+            return NotFound();
+        }
+
+        [HttpDelete("{id:int}")]
+        public IActionResult Delete(int id)
+        {
+            return NotFound();
+        }
+
+    }
+}
