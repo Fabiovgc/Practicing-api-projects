@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Employee_manager.Entities;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Employee_manager.Controllers
 {
@@ -21,9 +22,9 @@ namespace Employee_manager.Controllers
         }
 
         [HttpPost]
-        public IActionResult Post()
+        public IActionResult Post(Employee employee)
         {
-            return Ok();
+            return CreatedAtAction(nameof(GetById), new { id = employee.Id }, employee);
         }
 
         [HttpPut("{id:int}")]
