@@ -28,7 +28,7 @@ namespace Employee_manager.Controllers
         }
 
         [HttpPut("{id:int}")]
-        public IActionResult Put(int id)
+        public IActionResult Put(int id, Employee employee)
         {
             return NoContent();
         }
