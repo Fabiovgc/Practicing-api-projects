@@ -1,4 +1,5 @@
 ﻿using Employee_manager.Entities;
+using Employee_manager.Persistence;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Employee_manager.Controllers
@@ -7,18 +8,34 @@ namespace Employee_manager.Controllers
     [Route("api/employees")]
     public class EmployeeController : ControllerBase
     {
+
+       private readonly EmployeeDbContext _context;
+
+        public EmployeeController(EmployeeDbContext context)
+        {
+            _context = context;
+        }
+
+
         [HttpGet]
         public IActionResult GetAll()
         {
-            return Ok();
+            // // 
+            var employees = _context.Employees.ToList();
+            return Ok(employees);
         }
 
         [HttpGet("{id:int}")]
         public IActionResult GetById(int id)
         {
+            var employee = _context.Employees.SingleOrDefault(j => j.Id == id);
 
-            // return NotFound();
-            return Ok();
+            if (employee == null)
+            {
+                return NotFound();
+            }
+            
+            return Ok(employee);
         }
 
         [HttpPost]
