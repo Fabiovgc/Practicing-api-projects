@@ -1,4 +1,7 @@
 
+using Employee_manager.Persistence;
+using Microsoft.EntityFrameworkCore;
+
 namespace Employee_manager
 {
     public class Program
@@ -18,6 +21,10 @@ namespace Employee_manager
             {
                 c.SwaggerDoc("v1", new() { Title = "EmployeeManagerAPI", Version = "v1" });
             });
+
+            builder.Services.AddDbContext<EmployeeDbContext>(
+                o => o.UseInMemoryDatabase("EmployeeDb")
+                );
 
             var app = builder.Build();
 
