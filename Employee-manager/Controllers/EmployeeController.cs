@@ -41,12 +41,31 @@ namespace Employee_manager.Controllers
         [HttpPost]
         public IActionResult Post(Employee employee)
         {
+            _context.Employees.Add(employee);
+            _context.SaveChanges();
+
             return CreatedAtAction(nameof(GetById), new { id = employee.Id }, employee);
         }
 
         [HttpPut("{id:int}")]
         public IActionResult Put(int id, Employee employee)
         {
+            var employeeToUpdate = _context.Employees.SingleOrDefault(j => j.Id == id);
+            if (employeeToUpdate == null)
+            {
+                return NotFound();
+            }
+
+            employeeToUpdate.Update(employee.Name, employee.Position, employee.Department, employee.Salary);
+
+            _context.Employees.Update(employeeToUpdate);
+            _context.SaveChanges();
+
+            // Why does Update comes from _context.Employees?
+            // Because it is a method of the Employee entity class that updates its properties.
+            // The _context.Employees is a DbSet<Employee> that represents the collection of Employee entities in the database.
+            // When we retrieve an Employee entity from the DbSet, we can call its Update method to modify its properties.
+
             return NoContent();
         }
 
