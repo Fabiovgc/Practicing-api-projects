@@ -1,4 +1,5 @@
 ﻿using Events_manager.Models;
+using Events_manager.NewFolder;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Events_manager.Controllers
@@ -7,12 +8,22 @@ namespace Events_manager.Controllers
     [Route("api/[controller]")]
     public class EventsController : ControllerBase
     {
+
+        private readonly EventsDbContext _context;
+
+        public EventsController(EventsDbContext context)
+        {
+            _context = context;
+        }
+
+
+
         [HttpGet]
         public IActionResult GetAllEvents()
         {
-            // ToList();
+            var allEvents = _context.Events.ToList();
 
-            return Ok();
+            return Ok(allEvents);
         }
 
 
