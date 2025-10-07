@@ -14,6 +14,8 @@ namespace Events_manager
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
+
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
