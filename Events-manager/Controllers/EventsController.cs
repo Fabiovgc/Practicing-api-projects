@@ -30,18 +30,19 @@ namespace Events_manager.Controllers
         [HttpGet("{id:int}")]
         public IActionResult GetEventsById(int id)
         {
-            // SingleOrDefault
+            var _event = _context.Events.SingleOrDefault(j => j.Id == id);
+            if (_event == null)
+            {
+                return NotFound();
+            }
             return Ok();
         }
 
         [HttpPost]
         public IActionResult PostEvent(Event _event)
         {
-            // CreatedAtAction
-
             return CreatedAtAction(nameof(GetEventsById), new { id = _event.Id }, _event);
-
-            // retornar 
+ 
         }
 
         [HttpPut("{id:int}")]
