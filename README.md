@@ -4,7 +4,7 @@ Here I experiment with basic CRUD operations, routing, databases, API documentat
 
 ## Projects included
 - **Employee-Manager**(InMemoryDb) → Simple CRUD with Entity Framework Core using in-memory database.  
-- **People-Manager**(WithViews) → Project with Views and Bootstrap to practice routing and front-end integration.
+- **People-Manager** → Project dedicated to practicing routing and frontend integration with Bootstrap.
 
 ## Main technologies
 - ASP.NET Core  
