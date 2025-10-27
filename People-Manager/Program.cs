@@ -1,3 +1,6 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using People_Manager.Data;
 namespace People_Manager
 {
     public class Program
@@ -5,6 +8,9 @@ namespace People_Manager
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+            
+            builder.Services.AddDbContext<PeopleManagerDbContext>(options =>
+                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'PeopleManagerDbContext' not found.")));
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();

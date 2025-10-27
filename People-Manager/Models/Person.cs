@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using People_Manager.Models.Enum;
+using System.ComponentModel.DataAnnotations;
 
 namespace People_Manager.Models
 {
@@ -29,6 +30,13 @@ namespace People_Manager.Models
         [Required(ErrorMessage ="Birth Date required")]
         [CustomValidation(typeof(Person), "ValidateBirthDate")]
         public DateTime? BirthDate { get; set; }
+
+        [Required(ErrorMessage = "CPF é obrigatório! ")]
+        [StringLength(11, MinimumLength = 11, ErrorMessage = "CPF não corresponde ao formato correto.")]
+        public string CPF { get; set; }
+
+        [Required(ErrorMessage = "O tipo sanguíneo é obrigatório!")]
+        public ETipoSanguineo TipoSanguineo { get; set; }
 
         public static ValidationResult ValidateBirthDate(DateTime birthDate)
         {
