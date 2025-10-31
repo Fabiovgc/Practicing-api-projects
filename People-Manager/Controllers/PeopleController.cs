@@ -1,10 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using People_Manager.Models;
 using People_Manager.Service;
 
 namespace People_Manager.Controllers
 {
-    public class PeopleController : ControllerBase
+    public class PeopleController : Controller
     {
         private readonly IPeopleService _peopleService;
 
@@ -16,7 +17,7 @@ namespace People_Manager.Controllers
         public IActionResult Index()
         {
             var getAll = _peopleService.GetAll();
-            return Ok();
+            return View();
         }
     }
 }

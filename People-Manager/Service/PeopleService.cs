@@ -15,6 +15,7 @@ namespace People_Manager.Service
         public List<Person> GetAll()
         {
             var personLIst = new List<Person>();
+
             personLIst.Add(new Person
             {
                 Id = 1,
